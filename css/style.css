@@ -92,7 +92,7 @@ section {
   background-position: center;
   
   width: 98.5vw;                 /* ocupa 100% da largura da tela */
-  min-height: 10vh;            /* ocupa 100% da altura da tela */
+  min-height: 75vh;            /* ocupa 100% da altura da tela */
   margin-left: -5%;             /* compensa o padding do body */
   margin-right: -5%;            /* idem */
   margin-top: -5%;              /* se quiser colar no topo */
