@@ -1,91 +1,678 @@
+/* ========================================================= */
+/* --- CONFIGURAÇÕES GLOBAIS, VARIÁVEIS E TIPOGRAFIA --- */
+/* ========================================================= */
+:root {
+  --bg-color: #1c080b; /* Fundo principal: um tom de vinho bem escuro */
+  --text-primary: #e6dcd1; /* Cor principal de texto (branco quente) */
+  --text-secondary: #c9b8a8; /* Cor secundária de texto (um pouco mais escuro) */
+  --accent-color: #531B24; /* Cor de destaque para botões e interações */
+  --border-color: rgba(230, 220, 209, 0.2); /* Linhas divisórias transparentes */
+
+  /* Cores específicas para elementos como "pills" */
+  --pill-bg: var(--text-primary);
+  --pill-text: var(--bg-color);
+
+  /* Fontes */
+  --font-serif: 'Lora', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
 body {
-    background-color: #1f0505;
-    font-family: 'Noto Serif', serif, monospace;
-    color:#1f0505;
-    margin: 0;
-    padding: 0;
-}
-li {
-  display: inline;
-}
-a{
-    color: #ffffff;
-    text-decoration: none;
-}
-h1,h2, p{
-    color: #ffffff;
-    text-align:left;
-}
-label{
-    color: #ffffff;
-}
-.linha {
-  border: none;
-  border-top: 1px solid #bfb0b0;
+  background-color: var(--bg-color);
+  font-family: var(--font-sans);
+  color: var(--text-primary); /* Define a cor principal do texto globalmente */
   margin: 0;
+  padding: 0 5%; /* Aplica um padding global para evitar que o conteúdo encoste nas laterais */
+  line-height: 1.6;
 }
 
-/* Barra de navegação */
-nav {
-    padding: 5px 0;
+h1, h2, h3, p {
+  color: var(--text-primary);
 }
 
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* ========================================================= */
+/* --- NAVEGAÇÃO E RODAPÉ --- */
+/* ========================================================= */
 .navbar {
-    list-style: none;
-    display: flex;
-    padding: 0 15px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-items: center;
 }
 
 .navbar li {
-    margin: 0 10px;
+  margin: 0 15px;
 }
 
 .navbar li:first-child {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
+  padding: 10px 15px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-.navbar a:hover {
-    color: #410F16;
-    font-weight: 900;
+.navbar a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
-/* Hero */
+footer {
+text-align: center;
+padding: 50px 0;
+margin-top: 40px;
+}
+
+.p_footer{
+color: #531B24;
+text-align: center;
+}
+
+/* ========================================================= */
+/* --- PÁGINAS INDIVIDUAIS --- */
+/* ========================================================= */
+
+/* --- Index --- */
+section {
+  background-image: url('../img/section_1.png');
+  background-repeat: no-repeat;
+  background-size: cover;       /* imagem cobre toda a tela */
+  background-position: center;
+  
+  width: 98.5vw;                 /* ocupa 100% da largura da tela */
+  min-height: 10vh;            /* ocupa 100% da altura da tela */
+  margin-left: -5%;             /* compensa o padding do body */
+  margin-right: -5%;            /* idem */
+  margin-top: -5%;              /* se quiser colar no topo */
+  margin-bottom: -5%;           /* se quiser colar no rodapé */
+  padding: 60px 0;              /* mantém o respiro interno */
+}
+
+/* Estilo do título principal */
+.titulo-principal {
+font-size: 2rem;
+margin-bottom: 40px; /* Espaço abaixo do título */
+text-align: center;
+}
+
+/* Container que segura e alinha os cards */
+.container-cards {
+display: flex; /* ATIVA O FLEXBOX! */
+justify-content: center; /* Centraliza os cards no container */
+flex-wrap: wrap; /* Permite que os cards quebrem para a linha de baixo em telas menores */
+gap: 60px; /* Espaço perfeito entre os cards */
+}
+
+/* Estilo de cada card individual */
+.card {
+background-color: #e6e0e0; /* Cor de fundo do card (um cinza bem claro) */
+border-radius: 25px; /* Bordas bem arredondadas */
+width: 200px; /* Largura fixa para cada card */
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+display: flex;
+flex-direction: column; /* Empilha a imagem e o texto verticalmente */
+align-items: center; /* Centraliza horizontalmente */
+gap: 15px; /* Espaço entre a imagem e o texto */
+
+/* Estilo do link */
+text-decoration: none; /* Remove o sublinhado do link */
+color: #1a1010; /* Cor do texto dentro do card */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse por cima */
+.card:hover {
+transform: translateY(-10px); /* Levanta o card um pouco */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra para dar profundidade */
+}
+
+/* Estilo da imagem dentro do card */
+.card img {
+width: 300px; /* Tamanho da ilustração */
+height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estilo do texto dentro do card */
+.card .card-titulo {
+font-size: 1.1rem;
+font-weight: 600;
+color: #000;
+margin: 0; /* Remove margens padrão do parágrafo */
+}
+
+/* --- Estilos para a seção Hero (O que pode encontrar aqui) --- */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 8%;
-  background-color: #1f0505;
+  padding: 4rem 0;
 }
 
 .hero-text {
-  max-width: 55%;
+  max-width: 60%;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Tamanho de fonte responsivo */
   margin-bottom: 1rem;
 }
 
 .hero-text h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 400;
 }
 
 .hero-text p {
   margin-top: 1rem;
   font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .hero-img img {
   width: 250px;
+  height: auto;
+  border-radius: 8px; /* Adicionado para um visual mais moderno */
+}
+
+/* --- Estilos para a página de Serviços --- */
+/* Seção de Serviços */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.service-card {
+  background: linear-gradient(135deg, var(--card-bg-light), #f8f8f8);
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: var(--text-dark);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  border-left: 5px solid var(--accent-color);
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: var(--text-dark);
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+/* Seção de Ferramentas */
+.tools-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.tools-section h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tools-description {
+  color: var(--text-dark);
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+.tool-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tool-item {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  padding: 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.tool-item:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.tool-item i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* --- Estilos para a página de Contato --- */
+.contact-container {
+  max-width: 900px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.contact-container h1 {
+  font-size: 2.75rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.contact-container p {
+  font-size: 1.125rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-secondary);
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(184, 92, 106, 0.5);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Botão */
+button{
+display: inline-block;
+padding: 1rem 2.5rem;
+background: linear-gradient(135deg, #5c2c33, #531B24);
+border: none;
+border-radius: 12px;
+color: #fff;
+font-size: 1.05rem;
+font-weight: 600;
+letter-spacing: 0.6px;
+cursor: pointer;
+transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+background: linear-gradient(135deg, #7d3b46, #9c4955);
+transform: translateY(-2px);
+box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Estilos para a página Sobre --- */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--text-secondary);
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.profile-info h2 {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 5px 0;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.about, .skills, .experience, .education {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.about p {
+  text-align: justify;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap; /* Evita quebras de linha em pílulas */
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  background-color: var(--bg-color);
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-icon .fa-solid {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.timeline-content {
+  margin-left: 25px;
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.timeline-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- Estilos para a página de Portfólio --- */
+.portfolio-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio-title h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.portfolio-title p {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mais responsivo */
+  gap: 30px;
+}
+
+.project-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.project-links a {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+/* --- Estilos para a página de Interesses --- */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Mais responsivo */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.interest-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  background-color: rgba(230, 220, 209, 0.05);
+}
+
+.card-icon {
+  margin-bottom: 20px;
+}
+
+.card-icon .fa-solid {
+  font-size: 3rem;
+  color: var(--text-primary);
+}
+
+.interest-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.interest-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+
+/* ========================================================= */
+/* --- RESPONSIVIDADE GERAL --- */
+/* ========================================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 0 5%;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .hero-img {
+    order: -1; /* Move a imagem para cima em telas menores */
+  }
+
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-pic {
+    margin-bottom: 1rem;
+  }
+
+  .projects-grid,
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;  /* empilha os itens */
+    align-items: stretch;    /* ocupa toda a largura */
+    gap: 10px;               /* espaço vertical */
+    padding: 10px 0;
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar li a {
+    width: 100%;
+    padding: 12px 0;
+  }
 }

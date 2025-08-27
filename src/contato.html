@@ -8,38 +8,55 @@
     </head>
     <body>
 
-        <div>
-            <nav>
-                <ul class="navbar">
-                    <li><a href="/src/index.html"> Maria Fernanda D.</a></li>
-                    <li><a href="/src/index.html" >Início</a></li>
-                    <li><a href="/src/portfolio.html">Projetos</a></li>
-                    <li><a href="/src/servicos.html">Interesses</a></li>
-                    <li><a href="/src/sobre.html">Sobre mim</a></li>
-                    <li><a href="/src/contato.html">Contato</a></li>
-                </ul>
-            </nav>
-        <hr class="linha">
-        </div>
+    <div>
+      <nav>
+        <ul class="navbar">
+          <li><a href="./index.html"> Maria Fernanda D.</a></li>
+          <li><a href="./index.html" >Início</a></li>
+          <li><a href="./sobre.html">Sobre mim</a></li>
+          <li><a href="./portfolio.html">Projetos</a></li>
+          <li><a href="./servicos.html">Interesses</a></li>
+          <li><a href="./contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    <hr class="linha">
+    </div>
 
-        <div>
-            <h2>Contato</h2>
-            <p>Se você deseja entrar em contato comigo, por favor, preencha o formulário abaixo:</p>
-        </div>
-        <div>
-            <form action="processa_formulario.php" method="post">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required><br><br>
+    <!-- Seção contato -->
+    <div class="contact-container">
+        <h1>Contato</h1>
+        <p>Estou sempre aberta a discutir novos projetos, ideias criativas ou oportunidades. Entre em contato e entrarei em contato o mais breve possível.</p>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
+            </div>
 
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" cols="30" required></textarea><br><br>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email">
+            </div>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="subject">Assunto</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="7"></textarea>
+            </div>
 
-    </body>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </div>
+
+ <footer>
+    <img src="../img/icon_github.png" class="footer-img">
+    <img src="../img/icon_linkedin.png" class="footer-img">
+    <img src="../img/icon_email.png" class="footer-img">
+    <p class="p_footer">Desenvolvido por Maria Fernanda D. &copy; 2025</p>
+  </footer>
+</body>
 </html>
